@@ -1,0 +1,31 @@
+
+<h2>My Heroes</h2>
+<!--https://angular.io/tutorial/toh-pt2#final-code-review-->
+
+<div *ngIf="selectedHero">
+      <table>
+        <tr>
+          <td><label>name:</label></td>
+          <td><input [(ngModel)]="selectedHero.name" placeholder="Name"></td>
+        </tr>
+        <tr>
+          <td><label>surname:</label></td>
+          <td><input [(ngModel)]="selectedHero.surname" placeholder="Surname"></td>
+        </tr>
+      </table>
+</div>
+
+    <br><b><u>Output</u></b>
+    <br> <br>
+
+   
+    <div><span>Id:</span><b>{{selectedHero.id}}</b></div>
+    <div><span>Your name is:<b>{{selectedHero.name}}</b></span></div>
+    <div>Your surname is:<b>{{ selectedHero.surname }}</b></div>
+    <ul class="heroes">
+        <li *ngFor="let hero of heroes" [ .selected]="hero === selectedHero"
+          (click)="onSelect(hero)">
+          <span class="badge">{{hero.id}}</span>{{hero.name }} {{hero.surname}}
+        </li> 
+      </ul>
+ <app-hero-detail [hero]="selectedHero"></app-hero-detail>
